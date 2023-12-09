@@ -14,6 +14,12 @@ export default {
             default: function () {
                 return false
             }
+        },
+        priceSum:{
+            type:Number,
+            default: function (){
+                return 0
+            }
         }
     },
     methods: {
@@ -46,16 +52,20 @@ export default {
                             src="https://cdn.shopify.com/s/files/1/0550/6996/6414/products/6560_1800x.jpg?v=1645098113"
                             alt="mini preview" />
                         <span>{{ item[0].name }}</span> <!--  name -->
-                        <span>{{ item[1] }}</span>
+
+                        <span>Quantité: {{ item[1] }}</span>
                         <span>{{item[0].price}}</span> <!--  prix unité -->
 
                         <span><button @click="deleteCartItem(item)">Delete Item</button></span>
                         
-                        <span>{{item[0].price * item[1]}}</span> <!--  quantité*price -->
+                        
                     </div>
                     </p>
                     <div class="flex justify-end items-end mt-10">
                         <button @click="closeCart">Close Cart</button>
+                    </div>
+                    <div class="flex justify-end items-end mt-10">
+                        <p>Total Cart : {{ priceSum }} EUR</p>
                     </div>
                 </div>
                 <div class="items-center px-4 py-3">

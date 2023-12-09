@@ -11,7 +11,7 @@ export default {
       selectedBrand: null,
       filterTab: [],
       priceLimite: null,
-      itemQte:1
+      itemQte: 1,
     };
   },
   methods: {
@@ -24,9 +24,9 @@ export default {
     priceFilter(item) {
       this.priceLimite = item;
     },
-    addToCart(cartItem){
-        this.$emit("add", [cartItem,this.itemQte])
-    }
+    addToCart(cartItem) {
+      this.$emit("add", [cartItem, this.itemQte]);
+    },
   },
   computed: {
     uniqueBrand() {
@@ -43,14 +43,14 @@ export default {
     brandFilterAction() {
       if (!this.selectedBrand || this.selectedBrand == "all") {
         this.filterTab = this.hoodiesList;
-        this.priceLimite = false; 
+        this.priceLimite = false;
       } else if (this.selectedBrand) {
         this.filterTab = this.hoodiesList;
         this.filterTab = this.filterTab.filter(
           (prod) => prod.brand === this.selectedBrand
         );
-      } 
-      
+      }
+
       if (this.priceLimite) {
         this.filterTab = this.filterTab.filter(
           (prod) => prod.price < this.priceLimite
@@ -149,7 +149,7 @@ export default {
                 <button
                   type="button"
                   class="inline-block rounded border-2 bg-tertiary-contrast text-card-background-light border-button-text px-6 pt-2 pb-2 text-xs font-medium uppercase leading-normal text-info w-44"
-                    @click="addToCart(item)"
+                  @click="addToCart(item)"
                 >
                   ADD TO CART
                   <svg
